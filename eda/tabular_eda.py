@@ -266,7 +266,8 @@ def plot_correlations(df, columns, relative_to, corr_type='spearman'):
 
 def get_quanti_quali_columns(df, columns=None):
     '''
-    returns tuple of column names. Quantitive and qualitive feature columns.
+    returns tuple of two lists of column names with
+    Quantitative and qualitive features.
     '''
     if columns is None:
         _columns = df.columns
@@ -297,7 +298,7 @@ def show_report_1(df_init, target_column, columns_init=None):
     print('Missed values')
     plot_missing(df[columns])
     plt.show()
-    
+
     quantitative, qualitative = get_quanti_quali_columns(df, columns)
     df_filled = fill_with_missing(df, qualitative)
 
